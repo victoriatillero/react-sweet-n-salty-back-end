@@ -3,9 +3,9 @@ dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const testJwtRouter = require('./controllers/test-jwt')
+
 const authRouter = require('./controllers/auth')
-// import the controller file
+
 const snackRouter = require('./controllers/snacks.js')
 const usersRouter = require('./controllers/users');
 
@@ -21,11 +21,9 @@ app.use(cors({ origin: 'http://localhost:5173'}));
 app.use(express.json());
 app.use(logger('dev'));
 
-// Routes go here
-// add the snackRouter to the '/snack' route
 app.use('/snacks', snackRouter);
 app.use('/auth', authRouter);
-app.use('/test-jwt', testJwtRouter);
+
 app.use('/users', usersRouter);
 
 

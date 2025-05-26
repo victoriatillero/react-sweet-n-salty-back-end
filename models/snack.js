@@ -14,6 +14,11 @@ const snackSchema =mongoose.Schema({
         enum: ['sweet', 'salty'],
         required: true
     },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required: true,
+    }, 
 })
 const Snack = mongoose.model('Snack', snackSchema);
 
