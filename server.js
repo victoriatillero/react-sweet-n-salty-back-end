@@ -16,14 +16,8 @@ mongoose.connection.on('connected', () => {
 
 const logger = require('morgan');
 const app = express();
-const allowedOrigins = [
-  'http://localhost:5173',
-  process.env.FRONT_END_ORIGIN
-];
-app.use(cors({
-  origin: allowedOrigins,
-  credentials:true
-}));
+
+app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
 
