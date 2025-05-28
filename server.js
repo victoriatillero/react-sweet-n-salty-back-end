@@ -4,6 +4,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+const port = process.env.port || 3000
+
 const authRouter = require('./controllers/auth')
 
 const snackRouter = require('./controllers/snacks.js')
@@ -23,7 +25,7 @@ const allowedOrigins = [
 ];
 app.use(cors({
   origin: allowedOrigins,
-  credentials:true 
+  credentials:true
 }));
 app.use(express.json());
 app.use(logger('dev'));
@@ -34,6 +36,6 @@ app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 
 
-app.listen(3000, () => {
-  console.log('The express app is ready!');
+app.listen(PORT, () => {
+  console.log(`The express app is ready on port ${PORT}!`);
 });
