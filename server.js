@@ -3,9 +3,6 @@ dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
-const port = process.env.port || 3000
-
 const authRouter = require('./controllers/auth')
 
 const snackRouter = require('./controllers/snacks.js')
@@ -35,6 +32,7 @@ app.use('/auth', authRouter);
 
 app.use('/users', usersRouter);
 
+const PORT = process.env.port || 3000;
 
 app.listen(PORT, () => {
   console.log(`The express app is ready on port ${PORT}!`);
